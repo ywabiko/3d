@@ -1,0 +1,2 @@
+use <../audiojack.scad>
+audiojack();

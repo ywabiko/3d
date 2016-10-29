@@ -1,0 +1,2 @@
+use <../Compo.scad>
+compo();
