@@ -253,7 +253,6 @@ module screw_hole_align_z(hole_d, hole_z, wall_t, unit_x, unit_y, unit_z, volume
 module screw_hole_zplate0(hole_d, hole_z, wall_t, unit_x, unit_y, unit_z, volume_type="positive",
                           shell_x=0, shell_y=0, shell_z=0, with_shell=0) {
 
-    echo(volume_type=volume_type);
     if (volume_type == "positive") {
         difference() {
             cube([unit_x, unit_y, unit_z],center=true);
@@ -271,8 +270,6 @@ module screw_hole_negative_volume(hole_d, hole_z, wall_t, unit_x, unit_y, unit_z
                                   shell_x=0, shell_y=0, shell_z=0, with_shell=0) {
 
 
-    //echo (unit_x=unit_x, unit_y=unit_y, unit_z=unit_z);
-    //echo(shell_x=shell_x);
     translate([0,0,unit_z/2-hole_z]) {
         cylinder(r=hole_d/2, h=hole_z+WELDING, $fn=16);
     }

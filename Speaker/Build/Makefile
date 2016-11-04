@@ -65,8 +65,13 @@ AUDIOJACK = audiojack.stl \
 
 SPEAKER_STAND = speaker_stand.stl
 
+BTAUDIO = btaudio.stl \
+          btaudio_unit_test.stl
+
 COMPO = Compo_PAM8403.stl \
         Compo_MAX98306.stl \
+        Compo_btaudio.stl \
+        Compo_btaudio_lid_test.stl \
         Compo_lid_test.stl \
         Compo_screw_test.stl \
         Compo_screw_test_amp1.stl \
@@ -82,7 +87,8 @@ RELEASE = $(CE32A_REV1) \
           $(MICROUSB) \
           $(AUDIOJACK) \
           $(SPEAKER_STAND) \
-          $(COMPO)
+          $(COMPO) \
+          $(BTAUDIO)
 
 TEST =
 DEBUG =
@@ -90,6 +96,7 @@ DEBUG =
 all: $(RELEASE) $(TEST)
 microusb: $(MICROUSB)
 audiojack: $(AUDIOJACK)
+btaudio: $(BTAUDIO)
 test: $(TEST)
 debug: $(DEBUG)
 
@@ -301,6 +308,14 @@ Compo_MAX98306.stl: ../Compo.scad PAM8403.stl MAX98306.stl CE32A_Rev1.stl microu
 	$(OPENSCAD) -D "TARGET=\"max98306\";"
 	$(PUBLISH)
 
+Compo_btaudio.stl: ../Compo.scad PAM8403.stl MAX98306.stl CE32A_Rev1.stl microusb.stl audiojack.stl btaudio.stl
+	$(OPENSCAD) -D "TARGET=\"btaudio\";"
+	$(PUBLISH)
+
+Compo_btaudio_lid_test.stl: ../Compo.scad PAM8403.stl MAX98306.stl CE32A_Rev1.stl microusb.stl audiojack.stl btaudio.stl
+	$(OPENSCAD) -D "TARGET=\"btaudio_lid_test\";"
+	$(PUBLISH_TEST)
+
 Compo_lid_test.stl: ../Compo.scad PAM8403.stl MAX98306.stl CE32A_Rev1.stl microusb.stl audiojack.stl
 	$(OPENSCAD) -D "TARGET=\"lid_test\";"
 	$(PUBLISH_TEST)
@@ -315,6 +330,18 @@ Compo_screw_test_amp1.stl: ../Compo.scad PAM8403.stl MAX98306.stl CE32A_Rev1.stl
 
 Compo_lid_screw_test.stl: ../Compo.scad PAM8403.stl MAX98306.stl CE32A_Rev1.stl microusb.stl audiojack.stl
 	$(OPENSCAD) -D "TARGET=\"lid_screw_test\";"
+	$(PUBLISH_TEST)
+
+btaudio.stl:  ../btaudio.scad
+	$(OPENSCAD) -D "TARGET=\"default\";"
+	$(PUBLISH)
+
+btaudio_unit_test.stl:  ../btaudio.scad
+	$(OPENSCAD) -D "TARGET=\"unit_test\";"
+	$(PUBLISH_TEST)
+
+btaudio_lid_test.stl:  ../btaudio.scad
+	$(OPENSCAD) -D "TARGET=\"lid_test\";"
 	$(PUBLISH_TEST)
 
 clean:

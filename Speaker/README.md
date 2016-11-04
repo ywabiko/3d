@@ -1,3 +1,29 @@
+Tiny Bluetooth Speaker
+======================
+
+Available at [Thingiverse](http://www.thingiverse.com/thing:1865586)
+
+This is a tiny Bluetooth speaker system designed as a "kitchen speaker".
+Assembly requires following parts and a bit of soldering.
+
+  - 1 x Bluetooth Receiver: [TinySine Bluetooth Receiver Board](http://www.tinyosshop.com/index.php?route=product/product&product_id=792)  [@Amazon](https://www.amazon.com/gp/product/B00PXC0CIK/ref=oh_aui_detailpage_o01_s02?ie=UTF8&psc=1).
+  - 1 x Amplifier: [Adafruit Stereo 3.7W Class D Audio Amplifier MAX98306](https://www.adafruit.com/product/987) [@Amazon](https://www.amazon.com/Adafruit-Stereo-Class-Audio-Amplifier/dp/B00SLYAK1G).
+  - 2 x 1" Speaker drivers [Dayton Audio CE32A](http://www.daytonaudio.com/index.php/dayton-audio-ce32a-4-1-1-4-mini-speaker-4-ohm.html) [@Parts Express](http://www.parts-express.com/dayton-audio-ce-series-ce32a-4-1-1-4-mini-speaker-4-ohm--285-103).
+  - (Optional) 2 x Small screws #4 3/8-in [@HomeDepot](http://www.homedepot.com/p/Everbilt-4-x-3-8-in-Zinc-Plated-Steel-Phillips-Pan-Head-Sheet-Metal-Screw-16-per-Pack-812661/204275188).
+
+Note:
+  - Depending on printer accuracy or filament types, the lid might be a bit loose. You can screw it in that case.
+  - For a kitchen speaker scenario, I would set the gain jumper on Adafruit MAX98306 to 15dB or 18dB to achieve large enough volume.
+
+小さな Bluetoothスピーカーです。キッチンスピーカーとして作りました。
+組み立てに必要な部品は以下のとおりです。はんだ付けが必要です。プリンタの精度やフィラメントの特性によりふたがゆるい場合はネジ留めも可能です。
+
+  - 1 x Bluetooth レシーバー [TinySine Bluetooth Receiver Board](http://www.tinyosshop.com/index.php?route=product/product&product_id=792) [@Amazon](https://www.amazon.com/gp/product/B00PXC0CIK/ref=oh_aui_detailpage_o01_s02?ie=UTF8&psc=1).
+  - 1 x アンプボード [Adafruit MAX98306](https://www.switch-science.com/catalog/1140/) [@Amazon](https://www.amazon.com/Adafruit-Stereo-Class-Audio-Amplifier/dp/B00SLYAK1G).
+  - 2 x 1インチスピーカードライバー [Dayton Audio CE32A](http://www.daytonaudio.com/index.php/dayton-audio-ce32a-4-1-1-4-mini-speaker-4-ohm.html) [@Amazon](https://www.amazon.co.jp/Dayton-Audio-CE32A-8-Speaker-%E4%B8%A6%E8%A1%8C%E8%BC%B8%E5%85%A5%E5%93%81/dp/B012V5HCTI).
+  - （オプション）2 x 木ねじ #4 3/8インチ、あるいは M2.2 x 10mm等の下穴直径2mm 深さ10mm前後のもの。
+
+
 TangBand W1-1070SH 1" Speaker Driver Enclosure
 =====================================================
 
@@ -133,8 +159,7 @@ Available at [Thingiverse](http://www.thingiverse.com/thing:1795831)
 
 (UPDATE) Added a model with speaker stand as per [a comment](http://www.thingiverse.com/thing:1788158/#comment-1024703).
 
-An enclosure for 1" speaker [\[Dayton Audio CE32A\]](http://www.daytonaudio.com/index.php/dayton-audio-ce32a-4-1-1-4-mini-speaker-4-ohm.html) that can be purchased at online stores like [\[Parts Express\]](http://www.parts-express.com/dayton-audio-ce-series-ce32a-4-1-1-4-mini-speaker-4-ohm--285-103
-)
+An enclosure for 1" speaker [Dayton Audio CE32A](http://www.daytonaudio.com/index.php/dayton-audio-ce32a-4-1-1-4-mini-speaker-4-ohm.html) that can be purchased at online stores like [Parts Express](http://www.parts-express.com/dayton-audio-ce-series-ce32a-4-1-1-4-mini-speaker-4-ohm--285-103)
 
 This is single piece type of enclosure that you can just insert the speaker driver to the enclosure from the front. This is more tolerrnt than [my previous version](http://www.thingiverse.com/thing:1788158) of errors resulting from printer accuracy or filament types.
 

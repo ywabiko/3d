@@ -231,7 +231,7 @@ module pam8403_unit_body_only(ox, oy, oz, with_vent, with_cabling, with_lid, wit
 // with_holder = { 1: render the holder to support PAM8403 board. 0: without holder (testing purpose). }
 // with_side   = { 1: fill in the side space between the shell and the holder (to avoid oozing). 0: does not do that. }
 // with_print = { 1: print layout (models are rotated to be printable), 0: edit layout (no rotation) }
-module pam8403_unit_lid_only(ox, oy, oz, lid_thick=shell_thick, with_vent, with_cabling, with_lid, with_shell, with_holder, with_hole=1, with_vent_lid=0, with_arm=0){
+module pam8403_unit_lid_only(ox, oy, oz, lid_thick=shell_thick, with_vent, with_cabling, with_lid, with_shell, with_holder, with_hole=1, with_vent_lid=0, with_arm=0, with_vent_style=0){
     // put holder at the left-top corner (looking from back side) = right-top corner (looking from front side)
     hx = ox/2 - size_x/2 - shell_thick;
     hy = 0;
@@ -282,17 +282,40 @@ module pam8403_unit_lid_only(ox, oy, oz, lid_thick=shell_thick, with_vent, with_
                         #prim_round_xplate(st*6, y2, 3, 1, 16);
                     }
                 }
-
+                
                 // lid vent holes (4x3)
                 if (with_vent_lid) {
-                    for (iz=[  -0.3, 0.9, 2.1]) {
-                        for (iy=[-1.8, -0.6, 0.6, 1.8]) {
-                        translate([0, 6*iy, 6*iz+1]) {
-                            rotate([0, 90, 0]) {
-                                cylinder(h=lid_thick*2, r=2, $fn=16, center=true);
-                            }
+                    if (with_vent_style==0) {
+                        for (iz=[  -0.3, 0.9, 2.1]) {
+                            for (iy=[-1.8, -0.6, 0.6, 1.8]) {
+                                translate([0, 6*iy, 6*iz+1]) {
+                                    rotate([0, 90, 0]) {
+                                        cylinder(h=lid_thick*2, r=2, $fn=16, center=true);
+                                    }
+                                }
                             }
                         }
+                    }
+                    if (with_vent_style==1) {
+                        for (iz=[-2.3, 0, 1, 2]) {
+                            for (iy=[-1.1, 0, 1.1]) {
+                                translate([0, 6*iy, 6*iz]) {
+                                    rotate([0, 90, 0]) {
+                                        cylinder(h=lid_thick*2, r=2, $fn=16, center=true);
+                                    }
+                                }
+                            }
+                        }
+                        for (iz=[-2.3, 1, 2]) {
+                            for (iy=[-2.2, 2.2]) {
+                                translate([0, 6*iy, 6*iz]) {
+                                    rotate([0, 90, 0]) {
+                                        cylinder(h=lid_thick*2, r=2, $fn=16, center=true);
+                                    }
+                                }
+                            }
+                        }
+                        
                     }
                 }
             }
