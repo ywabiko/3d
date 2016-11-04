@@ -16,12 +16,16 @@ Note:
   - For a kitchen speaker scenario, I would set the gain jumper on Adafruit MAX98306 to 15dB or 18dB to achieve large enough volume.
 
 小さな Bluetoothスピーカーです。キッチンスピーカーとして作りました。
-組み立てに必要な部品は以下のとおりです。はんだ付けが必要です。プリンタの精度やフィラメントの特性によりふたがゆるい場合はネジ留めも可能です。
+組み立てに必要な部品は以下のとおりです。多少はんだ付けが必要です。
 
   - 1 x Bluetooth レシーバー [TinySine Bluetooth Receiver Board](http://www.tinyosshop.com/index.php?route=product/product&product_id=792) [@Amazon](https://www.amazon.com/gp/product/B00PXC0CIK/ref=oh_aui_detailpage_o01_s02?ie=UTF8&psc=1).
   - 1 x アンプボード [Adafruit MAX98306](https://www.switch-science.com/catalog/1140/) [@Amazon](https://www.amazon.com/Adafruit-Stereo-Class-Audio-Amplifier/dp/B00SLYAK1G).
   - 2 x 1インチスピーカードライバー [Dayton Audio CE32A](http://www.daytonaudio.com/index.php/dayton-audio-ce32a-4-1-1-4-mini-speaker-4-ohm.html) [@Amazon](https://www.amazon.co.jp/Dayton-Audio-CE32A-8-Speaker-%E4%B8%A6%E8%A1%8C%E8%BC%B8%E5%85%A5%E5%93%81/dp/B012V5HCTI).
   - （オプション）2 x 木ねじ #4 3/8インチ、あるいは M2.2 x 10mm等の下穴直径2mm 深さ10mm前後のもの。
+
+備考：
+  - プリンタの精度やフィラメントの特性によりふたがゆるい場合はネジ留めも可能です。
+  - キッチンスピーカーとして使うためには、アンプのゲイン設定ジャンパーを 15dB か 18dB にして音量を持ち上げるとよさげです。
 
 
 TangBand W1-1070SH 1" Speaker Driver Enclosure
@@ -238,6 +242,7 @@ Using OpenSCAD Source Files
 ## Summary
 
 How to build STL:
+
     git clone
     cd Build
     make
@@ -248,19 +253,34 @@ STL files are copied under Staging folder (production) and StagingTest folder (t
 
 As a simple method to generate multiple STL files from single source file, model definition and rendering configuration are seperated into different modules (but still in the same source file) as follows.
 
-In foo.scad,
-   TARGET="default";
-   module foo_main(target=TARGET) // rendering definition
-   module foo(...) // model definitinon
+In foo.scad, the top level module will change rendering according to TARGET.
 
-In Build/Makefile,
-   foo.stl: ../foo.scad
-       $(OPENSCAD) -D "TARGET=\"default\";"
-   foo_with_stand.stl: ../foo.scad
-       $(OPENSCAD) -D "TARGET=\"with_stand\";"
+    TARGET="default";
+    module foo_main(target=TARGET) { // rendering definition
+        if (target=="default") {
+            foo();
+        }
+        if (target=="with_stand") {
+            foo(with_stand=1);
+        }
+    }
+    module foo(with_stand=0, ...) { // model definitinon
+    }
 
-To generate STL files, run "make" in Build directory. This will generate STL files.
-If the STL file is for production, it is copied to Staging/ directory.
-If the STL file is for test, it is copied to StagingTest/ directory.
+In Build/Makefile, a target command line specifies different TARGET definition.
+
+    foo.stl: ../foo.scad
+        $(OPENSCAD) -D "TARGET=\"default\";"
+    foo_with_stand.stl: ../foo.scad
+        $(OPENSCAD) -D "TARGET=\"with_stand\";"
+
+To generate STL files, run "make" in Build directory. This will generate all STL files.
+  - If the STL file is for production, it is copied to Staging/ directory.
+  - If the STL file is for test, it is copied to StagingTest/ directory.
+
+Also you can generate each target individually by doing something like
+
+    make foo_with_stand.stl
+
 
 For Windows, [Linux Subsystem for Windows](https://msdn.microsoft.com/ja-jp/commandline/wsl/install_guide) is recommended.
