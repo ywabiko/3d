@@ -1,5 +1,10 @@
 //
-// primitive library for Microsoft 3D Builder
+// Misc library
+//
+// by Yasuhiro Wabiko
+//
+// This work is licensed under a Creative Commons Attribution 4.0 International License.
+// https://creativecommons.org/licenses/by/4.0/
 //
 
 WELDING=0.1;
@@ -65,7 +70,7 @@ module prim_round_cube0(px0, py0, pz0,  pr0, pf)
     }
 }
 
-// px0,py0 = width(x-axis),height(y-axis), center at (0,0)
+// px0,py0 = width(x-axis),height(y-axis), center at (0,0), facing x-axis posiive
 // pz = thickness (z-axis from z=0)
 // pr = r
 // fn = $fn
@@ -91,7 +96,7 @@ module prim_round_xplate(px0, py0, pz0,  pr, pf)
     }
 }
 
-// center at (x/2,y/2,z/2)
+// center at (x/2,y/2,z/2), facing z-axis positive
 module prim_round_zplate0(px0, py0, pz0,  pr, pf)
 {
     px = px0-pr*2;
@@ -109,7 +114,7 @@ module prim_round_zplate0(px0, py0, pz0,  pr, pf)
     }    
 }
 
-// center at (x/2,y/2,z/2)
+// center at (x/2,y/2,z/2), facing x-axis positive
 module prim_round_xplate0(pz0, py0, px0,  pr, pf)
 {
     px = px0-pr*2;
@@ -128,7 +133,7 @@ module prim_round_xplate0(pz0, py0, px0,  pr, pf)
     }    
 }
 
-// center at (x/2,y/2,z/2)
+// center at (x/2,y/2,z/2), facing y-axis positive
 module prim_round_yplate0(px0, pz0, py0, pr, pf)
 {
     px = px0-pr*2;
@@ -155,11 +160,11 @@ default_wall_t = 2;
 
 // [Public]
 // #2 1/8" screw hole (diameter 2mm x depth 3mm)
-// wall thickness = 2mm by default, so overall dimeision is 6mm x 6mm x 5mm high.
+// wall thickness = 2mm by default, so overall dimension is 6mm x 6mm x 5mm high.
 // align = { "none" : centered at (0,0,0) facing z-axis positive (same as zplate0)
-//           "x"    : aligned to x-plane, facing x-axis positive.
-//           "y"    : aligned to y-plane, facing y-axis positive.
-//           "z"    : aligned to z-plane, facing z-axis positive.
+//           "x"    : aligned to yz-plane, facing x-axis positive.
+//           "y"    : aligned to zx-plane, facing y-axis positive.
+//           "z"    : aligned to xy-plane, facing z-axis positive.
 //          }
 module screw_hole_d2_h3(align="none", wall_t = default_wall_t, volume_type="positive",
                         shell_x=0, shell_y=0, shell_z=0, with_shell=0){
@@ -171,11 +176,11 @@ module screw_hole_d2_h3(align="none", wall_t = default_wall_t, volume_type="posi
 
 // [Public]
 // #4-3/8" screw (diameter 2.8mm x depth 9.5mm)
-// wall thickness = 2mm by default, so overall dimeision is 6.8mm x 6.8mm x 9.7mm high.
+// wall thickness = 2mm by default, so overall dimension is 6.8mm x 6.8mm x 9.7mm high.
 // align = { "none" : centered at (0,0,0) facing z-axis positive (same as zplate0)
-//           "x"    : aligned to x-plane, facing x-axis positive.
-//           "y"    : aligned to y-plane, facing y-axis positive.
-//           "z"    : aligned to z-plane, facing z-axis positive.
+//           "x"    : aligned to yz-plane, facing x-axis positive.
+//           "y"    : aligned to zx-plane, facing y-axis positive.
+//           "z"    : aligned to xy-plane, facing z-axis positive.
 //          }
 module screw_hole_d28_h95(align="none", wall_t = default_wall_t, volume_type="positive",
                           shell_x=0, shell_y=0, shell_z=0, with_shell=0)
@@ -217,7 +222,7 @@ module screw_hole_body(align="none", hole_d, hole_z, wall_t = default_wall_t, vo
     }
 }
 
-// align = { "x"    : aligned to x-plane, facing x-axis positive. }
+// align = { "x"    : face aligned to yz-plane, facing x-axis positive. }
 module screw_hole_align_x(hole_d, hole_z, wall_t, unit_x, unit_y, unit_z, volume_type="positive")
 {
     translate([-unit_z/2,0,0])
@@ -228,7 +233,7 @@ module screw_hole_align_x(hole_d, hole_z, wall_t, unit_x, unit_y, unit_z, volume
     }
 }
 
-// align = { "y"    : aligned to y-plane, facing y-axis positive. }
+// align = { "y"    : face aligned to zx-plane, facing y-axis positive. }
 module screw_hole_align_y(hole_d, hole_z, wall_t, unit_x, unit_y, unit_z, volume_type="positive")
 {
     translate([0,-unit_z/2,0]){
@@ -238,7 +243,7 @@ module screw_hole_align_y(hole_d, hole_z, wall_t, unit_x, unit_y, unit_z, volume
     }
 }
 
-// align = { "z"    : aligned to z-plane, facing z-axis positive. }
+// align = { "z"    : face aligned to xy-plane, facing z-axis positive. }
 module screw_hole_align_z(hole_d, hole_z, wall_t, unit_x, unit_y, unit_z, volume_type="positive")
 {
     translate([0,0,-unit_z/2])
