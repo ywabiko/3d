@@ -249,6 +249,19 @@ HiVi B1S 1" スピーカー用のケースです。[このサイト](http://mx-s
 Using OpenSCAD Source Files
 ===========================
 
+## Requirements
+
+Tools:
+  - OpenSCAD
+  - make
+  - git
+
+Following steps have been tested on this environment.
+  - Windows 10 Anniversay Update x64
+  - [Linux Subsystem for Windows](https://msdn.microsoft.com/ja-jp/commandline/wsl/install_guide)
+      - openscad 2015.03-1+dfsg-0.1~trusty1.
+      - make 3.81-8.2ubuntu3
+
 ## Summary
 
 ### How to build all STL files:
