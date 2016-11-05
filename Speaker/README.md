@@ -253,16 +253,16 @@ Using OpenSCAD Source Files
 
 ### How to build all STL files:
 
-    git clone
-    cd Build
+    git clone https://github.com/ywabiko/3d
+    cd Speaker/Build
     make
 
 STL files are copied under Staging folder (production) and StagingTest folder (test).
 
 ### How to build STL files for a specific model:
   
-    git clone
-    cd Build
+    git clone https://github.com/ywabiko/3d
+    cd Speaker/Build
     make TARGET
 
 ... where TARGET is one of followings.
@@ -283,8 +283,8 @@ STL files are copied under Staging folder (production) and StagingTest folder (t
 
 Also, if you know the STL file name, you can specify it directly.
 
-    git clone
-    cd Build
+    git clone https://github.com/ywabiko/3d
+    cd Speaker/Build
     make ce32a_rev1.stl
 
 
