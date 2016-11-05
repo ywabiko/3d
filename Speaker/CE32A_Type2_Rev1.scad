@@ -6,6 +6,10 @@
 // This work is licensed under a Creative Commons Attribution 4.0 International License.
 // https://creativecommons.org/licenses/by/4.0/
 //
+// See
+//    https://github.com/ywabiko/3d/blob/master/Speaker/README.md
+// for build instructions.
+//
 
 use <speaker_stand.scad>
 use <prim.scad>

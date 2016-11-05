@@ -241,13 +241,42 @@ Using OpenSCAD Source Files
 
 ## Summary
 
-How to build STL:
+### How to build all STL files:
 
     git clone
     cd Build
     make
 
 STL files are copied under Staging folder (production) and StagingTest folder (test).
+
+### How to build STL files for a specific model:
+  
+    git clone
+    cd Build
+    make TARGET
+
+... where TARGET is one of followings.
+  - ce32a_rev1
+  - ce32a_type2_rev1
+  - b1s_rev2
+  - aura205
+  - tb1070sh
+  - pam8403
+  - max98306
+  - microusb
+  - audiojack
+  - speaker_stand
+  - compo
+  - btaudio
+
+STL files are copied under Staging folder (production) and StagingTest folder (test).
+
+Also, if you know the STL file name, you can specify it directly.
+
+    git clone
+    cd Build
+    make ce32a_rev1.stl
+
 
 ## Detail
 
