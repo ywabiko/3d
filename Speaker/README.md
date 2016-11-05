@@ -1,3 +1,13 @@
+Building from OpenSCAD source files
+===================================
+
+Please refer to [README](https://github.com/ywabiko/3d/blob/master/Speaker/README.md) for instructions to build STL files from OpenScad source file.
+
+OpenScadソースファイルからSTLファイルを生成する手順の詳細については
+[README](https://github.com/ywabiko/3d/blob/master/Speaker/README.md)を参照してください。
+    
+
+
 Tiny Bluetooth Speaker
 ======================
 
@@ -31,7 +41,7 @@ Note:
 TangBand W1-1070SH 1" Speaker Driver Enclosure
 =====================================================
 
-(will be) Available at [Thingiverse](http://www.thingiverse.com/)
+Available at [Thingiverse](http://www.thingiverse.com/thing:1849828)
 
 An enclosure for 1" speaker [\[TangBand W1-1070SH\]](http://www.tb-speaker.com/products/w1-1070sh) that can be purchased at online stores like [\[Parts Express\]](http://www.parts-express.com/tang-band-w1-1070sh-1-full-range-driver--264-863)
 
@@ -46,7 +56,7 @@ Depending on your printer and/or filament types, the speaker driver and/or the l
 AuraSound Cougar NSW1-205 1" Speaker Driver Enclosure
 =====================================================
 
-(will be) Available at [Thingiverse](http://www.thingiverse.com/)
+(to be) Available at [Thingiverse](http://www.thingiverse.com/)
 
 An enclosure for 1" speaker [\[AuraSound Cougar NSW1-205\]](http://www.parts-express.com/aurasound-cougar-nsw1-205-8a-1-extended-range-driver-8-ohm--296-250) that can be purchased at online stores like [\[Parts Express\]](http://www.parts-express.com/aurasound-cougar-nsw1-205-8a-1-extended-range-driver-8-ohm--296-250)
 
@@ -62,7 +72,7 @@ Depending on your printer and/or filament types, the speaker driver and/or the l
 Tiny Powered Speaker
 ====================
 
-(will be) Available at [Thingiverse](http://www.thingiverse.com/thing:1850459)
+Available at [Thingiverse](http://www.thingiverse.com/thing:1850459)
 
 A tiny speaker system that consists of an analog amplifier and two speaker drivers.
 There are 2 variants depending on amplifier.
